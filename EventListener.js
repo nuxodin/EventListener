@@ -94,6 +94,7 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 			var self = this;
 
 			return function CustomEvent(type, detail) {
+				detail = detail || {};
 				var event = self.document.createEventObject(), key;
 
 				event.type = type;
