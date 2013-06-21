@@ -9,7 +9,7 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 	addToPrototype("addEventListener", function (type, listener) {
 		var
 		target = this,
-		listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+		listeners = target._c1_listeners = target._c1_listeners || {},
 		typeListeners = listeners[type] = listeners[type] || [];
 
 		// if no events exist, attach the listener
@@ -51,7 +51,7 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 	addToPrototype("removeEventListener", function (type, listener) {
 		var
 		target = this,
-		listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+		listeners = target._c1_listeners = target._c1_listeners || {},
 		typeListeners = listeners[type] = listeners[type] || [];
 
 		// remove the newest matching event from the master event list
@@ -74,7 +74,7 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 		var
 		target = this,
 		type = eventObject.type,
-		listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+		listeners = target._c1_listeners = target._c1_listeners || {},
 		typeListeners = listeners[type] = listeners[type] || [];
 
 		try {
